@@ -12,6 +12,8 @@ import javax.persistence.Table;
 public class Inventory {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	@Column(name = "product_id")
 	private int productId;
 	@Column(name = "merchant_id")
 	private int merchantId;

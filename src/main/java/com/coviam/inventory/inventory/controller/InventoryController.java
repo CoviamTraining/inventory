@@ -22,17 +22,24 @@ public class InventoryController {
 		inventory.insertInventory(item);		
 	}
 	*/
+	
+	//list of merchants selling particular product.
 	@RequestMapping(value = "/getmerchants/{key}", method = RequestMethod.GET)
 	public List<Inventory> getMerchants(@PathVariable("key") int key){
 		return inventory.getMerchants(key);
 	}
+	//list of products sold by particular merchants
 	@RequestMapping(value = "/getproducts/{key}", method = RequestMethod.GET)
 	public List<Inventory> getProducts(@PathVariable("key") int key){
 		return inventory.getProducts(key);		
 	}
+	
 	@RequestMapping(value = "/getprice/{prod_id}/{merc_id}", method = RequestMethod.GET)
 	public int getPrice(@PathVariable("prod_id") int prod_id,@PathVariable("merc_id") int merc_id){
 		return inventory.getPrice(prod_id, merc_id);		
 	}
-	
+	@RequestMapping(value = "/getstock/{prod_id}/{merc_id}", method = RequestMethod.GET)
+	public int getStock(@PathVariable("prod_id") int prod_id,@PathVariable("merc_id") int merc_id){
+		return inventory.getStock(prod_id, merc_id);		
+	}
 }
