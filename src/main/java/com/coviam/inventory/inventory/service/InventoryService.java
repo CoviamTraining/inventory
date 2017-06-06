@@ -10,5 +10,4 @@ public interface InventoryService {
 	List<Inventory> getProducts(int merchant_id);
 	int getPrice(int product_id,int merchant_id);
 	int getStock(int product_id,int merchant_id);
-
 }

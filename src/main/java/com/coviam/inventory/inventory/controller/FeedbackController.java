@@ -33,9 +33,13 @@ public class FeedbackController {
 		newObj.setRating(rating);
 		newObj.setReview(review);
 		feedback.saveFeedback(newObj);
-		
 		return newObj.toString();
 	}
-	
+
+
+	@RequestMapping(value = "/getAvgRating/{merchantId}")
+	public double getAvgRating(@PathVariable int merchantId){
+		return feedback.getAvgRating(merchantId);
+	}
 
 }

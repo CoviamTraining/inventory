@@ -1,5 +1,6 @@
 package com.coviam.inventory.inventory.service;
 
+import java.net.Inet4Address;
 import java.util.List;
 //import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,7 @@ public class InventoryServiceImp implements InventoryService {
 	public int getStock(int product_id, int merchant_id) {
 		 return inventory.findByProductIdAndMerchantId(product_id, merchant_id).getStock();
 	}
+
 	/*
 	@Override
 	public void insertInventory(Inventory item){

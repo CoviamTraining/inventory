@@ -42,4 +42,5 @@ public class InventoryController {
 	public int getStock(@PathVariable("prod_id") int prod_id,@PathVariable("merc_id") int merc_id){
 		return inventory.getStock(prod_id, merc_id);		
 	}
+
 }
