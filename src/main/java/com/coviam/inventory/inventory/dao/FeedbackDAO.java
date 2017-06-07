@@ -15,7 +15,8 @@ public interface FeedbackDAO  extends CrudRepository<Feedback, Integer>{
 	public List<Feedback> findByProductId(int productId);
 	public List<Feedback> findByMerchantId(int merchantId);
 
-	@Query("select f.rating from Feedback f where f.merchantId = :merchantId ")
-    public List<Integer> getRatingBymerchantId(@Param("merchantId") int merchantId);
+	@Query("select f.rating from Feedback f where f.merchantId = :merchantId and f.productId = :productId ")
+    public List<Integer> getRatingBymerchantIdAAndproductId(@Param("merchantId") int merchantId,
+                                                            @Param("productId") int productId);
 
 }

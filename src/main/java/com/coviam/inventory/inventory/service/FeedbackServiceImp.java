@@ -28,8 +28,8 @@ public class FeedbackServiceImp implements FeedbackService{
 	}
 
 	@Override
-    public double getAvgRating(int merchantId) {
-        List<Integer> allRating = feedback.getRatingBymerchantId(merchantId);
+    public double getAvgRating(int merchantId, int productId) {
+        List<Integer> allRating = feedback.getRatingBymerchantIdAAndproductId(merchantId,productId);
         double sum = allRating.stream().mapToInt(Integer::intValue).sum();
         System.out.println("sum is ========= " +sum + "list size is +============+ " +allRating.size());
         double avgrating = (double)sum/allRating.size();

@@ -37,9 +37,9 @@ public class FeedbackController {
 	}
 
 
-	@RequestMapping(value = "/getAvgRating/{merchantId}")
-	public double getAvgRating(@PathVariable int merchantId){
-		return feedback.getAvgRating(merchantId);
+	@RequestMapping(value = "/getAvgRating/{merchantId}/{productId}")
+	public double getAvgRating(@PathVariable int merchantId, @PathVariable int productId){
+		return feedback.getAvgRating(merchantId,productId);
 	}
 
 }

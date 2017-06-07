@@ -8,6 +8,6 @@ public interface FeedbackService {
 	List<Feedback> getFeedbackByProductId(int prodId);
 	List<Feedback> getFeedbackByMerchantId(int mercId);
 	void saveFeedback(Feedback feedback);
-	double getAvgRating(int merchantId);
+	double getAvgRating(int merchantId, int productId);
 
 }
