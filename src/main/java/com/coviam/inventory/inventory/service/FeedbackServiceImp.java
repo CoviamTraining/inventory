@@ -2,6 +2,7 @@ package com.coviam.inventory.inventory.service;
 
 import java.util.List;
 
+import com.coviam.inventory.inventory.entity.ProductRatingReview;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -13,8 +14,8 @@ public class FeedbackServiceImp implements FeedbackService{
 	@Autowired
 	FeedbackDAO feedback;
 	@Override
-	public List<Feedback> getFeedbackByProductId(int prodId) {
-		return feedback.findByProductId(prodId);
+	public List<Feedback> getFeedbackByProductIdAndMerchantId(int prodId,int merchantId) {
+		return feedback.findByProductIdAndMerchantId(prodId,merchantId);
 	}
 
 	@Override
@@ -34,6 +35,11 @@ public class FeedbackServiceImp implements FeedbackService{
         System.out.println("sum is ========= " +sum + "list size is +============+ " +allRating.size());
         double avgrating = (double)sum/allRating.size();
         return avgrating;
+    }
+
+    @Override
+    public List<ProductRatingReview> getRatingAndReviewsBymerchantIdAndproductId(int merchantId, int productId) {
+        return feedback.getRatingAndReviewsBymerchantIdAndproductId(merchantId,productId);
     }
 
 
