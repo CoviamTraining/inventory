@@ -96,6 +96,9 @@ public class InventoryServiceImp implements InventoryService {
 		String updateSold = restTemplate.getForObject(merchantUri+"updateSoldDistinctOnOrderPlace/"+productId+"/"
 				+merchantId+"/"+quantity+"/"+remainStock,String.class);
 
+		System.out.println("=========\n");
+		System.out.println("Rolled back the product merchant and quantity" + productId +","+merchantId+","+quantity);
+		System.out.println("============\n");
 		return "Done rollback";
 	}
 
