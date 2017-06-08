@@ -35,7 +35,10 @@ public class InventoryServiceImp implements InventoryService {
 
 	@Override
 	public int getPrice(int product_id, int merchant_id) {
-		return inventory.findByProductIdAndMerchantId(product_id, merchant_id).getPrice();
+		System.out.println("====++++++===+++++\n" + product_id + "'=========++++\n" +merchant_id +"\n\n"
+		+inventory.findByProductIdAndMerchantId(3,2).toString());
+		int price = inventory.findByProductIdAndMerchantId(product_id, merchant_id).getPrice();
+		return price;
 	}
 
 	@Override
