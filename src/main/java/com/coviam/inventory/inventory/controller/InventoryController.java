@@ -19,7 +19,7 @@ public class InventoryController {
 	/*
 	@RequestMapping(value = "/createinventory/", method = RequestMethod.POST)
 	public void create(@RequestBody com.coviam.inventory.inventory.entity.Inventory item){
-		inventory.insertInventory(item);		
+		inventory.insertInventory(item);
 	}
 	*/
 	
@@ -40,7 +40,18 @@ public class InventoryController {
 	}
 	@RequestMapping(value = "/getstock/{prod_id}/{merc_id}", method = RequestMethod.GET)
 	public int getStock(@PathVariable("prod_id") int prod_id,@PathVariable("merc_id") int merc_id){
-		return inventory.getStock(prod_id, merc_id);		
+		return inventory.getStock(prod_id, merc_id);
 	}
 
+	@RequestMapping(value = "/validateOrder/{productId}/{merchantId}/{quantity}")
+	public String getStockAndUpdateStock(@PathVariable int productId, @PathVariable int merchantId,
+										 @PathVariable int quantity){
+		return inventory.validateOrder(productId,merchantId,quantity);
+	}
+
+	@RequestMapping(value = "/rollbackUpdatedStockAndSoldUpdate/{productId}/{merchantId}/{quantity}")
+	public String rollbackUpdatedStockAndSoldUpdate(@PathVariable int productId, @PathVariable int merchantId,
+													@PathVariable int quantity){
+		return inventory.rollbackUpdatedStockAndSoldUpdate(productId,merchantId,quantity);
+	}
 }
