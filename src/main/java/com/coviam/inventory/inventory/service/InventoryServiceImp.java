@@ -64,10 +64,15 @@ public class InventoryServiceImp implements InventoryService {
 
 		int remainStock = getStockAfterUpdateStock(productId,merchantId,quantity);
 
-		String updateSold = restTemplate.getForObject(merchantUri+"updateSoldDistinctOnOrderPlace/"+productId+"/"
+		if(remainStock<0){
+			return "Not Success";
+		}else{
+			String updateSold = restTemplate.getForObject(merchantUri+"updateSoldDistinctOnOrderPlace/"+productId+"/"
 					+merchantId+"/"+quantity+"/"+remainStock,String.class);
-		// TODO if transaction abort then ???
-		return "success";
+			// TODO if transaction abort then ???
+			return "success";
+		}
+
 	}
 
 	@Override
