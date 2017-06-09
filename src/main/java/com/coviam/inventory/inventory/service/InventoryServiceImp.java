@@ -35,8 +35,6 @@ public class InventoryServiceImp implements InventoryService {
 
 	@Override
 	public int getPrice(int product_id, int merchant_id) {
-		System.out.println("====++++++===+++++\n" + product_id + "'=========++++\n" +merchant_id +"\n\n"
-		+inventory.findByProductIdAndMerchantId(3,2).toString());
 		int price = inventory.findByProductIdAndMerchantId(product_id, merchant_id).getPrice();
 		return price;
 	}
@@ -95,10 +93,6 @@ public class InventoryServiceImp implements InventoryService {
 
 		String updateSold = restTemplate.getForObject(merchantUri+"updateSoldDistinctOnOrderPlace/"+productId+"/"
 				+merchantId+"/"+quantity+"/"+remainStock,String.class);
-
-		System.out.println("=========\n");
-		System.out.println("Rolled back the product merchant and quantity" + productId +","+merchantId+","+quantity);
-		System.out.println("============\n");
 		return "Done rollback";
 	}
 

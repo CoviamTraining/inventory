@@ -25,16 +25,16 @@ public class FeedbackController {
 		return feedback.getFeedbackByProductIdAndMerchantId(productId,merchantId);
 	}
 
-	@RequestMapping(value = "/getmerchantfeedback/{key}", method = RequestMethod.GET)
-	public List<Feedback> getMerchantFeedback(@PathVariable("key") int key){
+    @RequestMapping(value = "/getmerchantfeedback/{key}", method = RequestMethod.GET)
+    public List<Feedback> getMerchantFeedback(@PathVariable("key") int key){
 		return feedback.getFeedbackByMerchantId(key);
 	}
-	 @RequestMapping(value = "/addFeedback", method = RequestMethod.POST)
-     public String add(@RequestBody Feedback feed) throws IOException {
-	    System.out.print("\n====\n"+feed.toString());
+
+	@RequestMapping(value = "/addFeedback", method = RequestMethod.POST)
+    public String add(@RequestBody Feedback feed) throws IOException {
 	    feedback.saveFeedback(feed);
 	    return "Successfully Added";
-     }
+    }
 
 	@RequestMapping(value = "/getAvgRating/{merchantId}/{productId}")
 	public double getAvgRating(@PathVariable int merchantId, @PathVariable int productId){

@@ -32,7 +32,6 @@ public class FeedbackServiceImp implements FeedbackService{
     public double getAvgRating(int merchantId, int productId) {
         List<Integer> allRating = feedback.getRatingBymerchantIdAAndproductId(merchantId,productId);
         double sum = allRating.stream().mapToInt(Integer::intValue).sum();
-        System.out.println("sum is ========= " +sum + "list size is +============+ " +allRating.size());
         double avgrating = 0;
         if(allRating.size()!=0){
             avgrating = (double)sum/allRating.size();
