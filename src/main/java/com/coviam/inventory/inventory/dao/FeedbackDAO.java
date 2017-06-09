@@ -2,7 +2,7 @@ package com.coviam.inventory.inventory.dao;
 
 import java.util.List;
 
-import com.coviam.inventory.inventory.entity.ProductRatingReview;
+import com.coviam.inventory.inventory.dto.ProductRatingReview;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
@@ -20,7 +20,7 @@ public interface FeedbackDAO  extends CrudRepository<Feedback, Integer>{
     public List<Integer> getRatingBymerchantIdAAndproductId(@Param("merchantId") int merchantId,
                                                             @Param("productId") int productId);
 
-    @Query("select new com.coviam.inventory.inventory.entity.ProductRatingReview(f.rating, f.review) " +
+    @Query("select new com.coviam.inventory.inventory.dto.ProductRatingReview(f.rating, f.review) " +
             " from Feedback f where f.merchantId = :merchantId and f.productId = :productId ")
     public List<ProductRatingReview> getRatingAndReviewsBymerchantIdAndproductId(@Param("merchantId") int merchantId,
                                                                                   @Param("productId") int productId);

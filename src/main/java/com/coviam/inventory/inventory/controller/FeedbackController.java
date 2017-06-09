@@ -3,7 +3,7 @@ package com.coviam.inventory.inventory.controller;
 import java.io.IOException;
 import java.util.List;
 
-import com.coviam.inventory.inventory.entity.ProductRatingReview;
+import com.coviam.inventory.inventory.dto.ProductRatingReview;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;

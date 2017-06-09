@@ -2,7 +2,7 @@ package com.coviam.inventory.inventory.service;
 
 import java.util.List;
 
-import com.coviam.inventory.inventory.entity.ProductRatingReview;
+import com.coviam.inventory.inventory.dto.ProductRatingReview;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

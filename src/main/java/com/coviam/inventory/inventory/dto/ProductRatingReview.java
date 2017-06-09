@@ -1,4 +1,4 @@
-package com.coviam.inventory.inventory.entity;
+package com.coviam.inventory.inventory.dto;
 
 /**
  * Created by gaurav on 06/06/17.
