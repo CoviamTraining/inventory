@@ -14,11 +14,6 @@ public class Feedback {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 	private int feedbackId;
-	@Override
-	public String toString() {
-		return "Feedback [productId=" + productId + ", merchantId=" + merchantId + ", custEmail=" + custEmail
-				+ ", rating=" + rating + ", review=" + review + "]";
-	}
 	@Column(name = "product_id")
 	private int productId;
 	@Column(name = "merchant_id")
@@ -29,6 +24,8 @@ public class Feedback {
 	private int rating;
 	@Column(name = "review")
 	private String review;
+
+
 	public int getProductId() {
 		return productId;
 	}
@@ -59,6 +56,10 @@ public class Feedback {
 	public void setReview(String review) {
 		this.review = review;
 	}
-	
+    @Override
+    public String toString() {
+        return "Feedback [productId=" + productId + ", merchantId=" + merchantId + ", custEmail=" + custEmail
+                + ", rating=" + rating + ", review=" + review + "]";
+    }
 	
 }
