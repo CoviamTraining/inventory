@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import com.coviam.inventory.inventory.dto.ProductRatingReview;
+import com.coviam.inventory.inventory.dto.RatingReview;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -46,4 +47,9 @@ public class FeedbackController {
 	    return feedback.getRatingAndReviewsBymerchantIdAndproductId(merchantId,productId);
     }
 
+	@RequestMapping(value = "/getProductRatingReview/{productId}/{merchantId}/{custEmail}/")
+	public String getRatingReview(@PathVariable int productId, @PathVariable int merchantId, @PathVariable String custEmail){
+        System.out.println("details \n "+productId + "    "+ merchantId + "  " + custEmail);
+        return feedback.getRatingReview(productId,merchantId,custEmail);
+    }
 }

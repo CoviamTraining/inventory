@@ -70,7 +70,6 @@ public class InventoryServiceImp implements InventoryService {
 		}else{
 			String updateSold = restTemplate.getForObject(merchantUri+"updateSoldDistinctOnOrderPlace/"+productId+"/"
 					+merchantId+"/"+quantity+"/"+remainStock,String.class);
-			// TODO if transaction abort then ???
 			return "success";
 		}
 
